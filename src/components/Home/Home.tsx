@@ -1,17 +1,20 @@
-import React from 'react'
-import { NutritionalValue } from '../../types/NutritionalValue'
+import React from "react";
+import { NutritionalValue } from "../../types/NutritionalValue";
+import Meal from "../Meal/Meal";
 
 export default function Home() {
-  const [mealList, setMealList] = React.useState<[NutritionalValue]>(
-    [
-      {
-        name: "rice",
-        mass: 100,
-        calories: 130,
-      },
-    ]
-  )
+  const [mealList, setMealList] = React.useState<[NutritionalValue]>([
+    {
+      name: "rice",
+      mass: 100,
+      calories: 130,
+    },
+  ]);
   return (
-    <div>Home</div>
-  )
+    <div>
+      {mealList.map((mealItem) => (
+        <Meal item={mealItem} />
+      ))}
+    </div>
+  );
 }
