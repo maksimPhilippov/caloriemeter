@@ -1,6 +1,7 @@
 import React from "react";
 import FindMealRequest from "../../utils/FindMealRequest";
 import { NutritionalValue } from "../../types/NutritionalValue";
+import SendRequestButton from "./SendRequestButton";
 
 interface MealFinderProp {
   listAdder: (items: NutritionalValue[]) => void;
@@ -17,12 +18,7 @@ export default function MealFinder(prop: MealFinderProp) {
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
       />
-      <button
-        className="basic-interactive"
-        onClick={() => FindMealRequest(inputText, prop.listAdder)}
-      >
-        find meals
-      </button>
+      <SendRequestButton query={inputText} />
     </div>
   );
 }

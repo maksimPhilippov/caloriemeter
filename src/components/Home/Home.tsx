@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { createContext, useContext, useEffect, useRef } from "react";
 import { NutritionalValue } from "../../types/NutritionalValue";
 import Meal from "../Meal/Meal";
 import MealFinder from "../MealFinder/MealFinder";
 import "./Home.scss";
 import Summary from "../Summary/Summary";
+import { ListContext } from "../../types/ListContext";
 
 export default function Home() {
   const [mealList, setMealList] = React.useState<NutritionalValue[]>([]);
@@ -50,17 +51,19 @@ export default function Home() {
   }
 
   return (
-    <div ref={thisElement} className="home-page">
-      {mealList.map((mealItem, index) => (
-        <Meal key={index} item={mealItem} index={index} />
-      ))}
-      <Summary
-        mealsCount={mealList.length}
-        mealsColriesSum={mealList
-          .reduce((sum, meal) => sum + meal.caloriesCoeficient * meal.mass, 0)
-          .toFixed(0)}
-      />
-      <MealFinder listAdder={addNewMeals} />
-    </div>
+    <ListContext.Provider value={{ listAdder: addNewMeals }}>
+      <div ref={thisElement} className="home-page">
+        {mealList.map((mealItem, index) => (
+          <Meal key={index} item={mealItem} index={index} />
+        ))}
+        <Summary
+          mealsCount={mealList.length}
+          mealsColriesSum={mealList
+            .reduce((sum, meal) => sum + meal.caloriesCoeficient * meal.mass, 0)
+            .toFixed(0)}
+        />
+        <MealFinder listAdder={addNewMeals} />
+      </div>
+    </ListContext.Provider>
   );
 }

@@ -21,7 +21,8 @@ function isTokenValid(token: string) {
 
 export default async function FindMealRequest(
   requestString: string,
-  adder: (items: NutritionalValue[]) => void
+  adder: (items: NutritionalValue[]) => void,
+  releaseButton: Function
 ) {
   let tokens = tokenize(requestString);
   let query = tokens.filter((token) => isTokenValid(token)).join(" ");
@@ -31,7 +32,10 @@ export default async function FindMealRequest(
       "X-Api-Key": "o83iN0OBHRqWd14nNEtbmw==Gm7yAxhcawET75xO",
     },
   })
-    .then((meals) => meals.json())
+    .then((meals) => {
+      releaseButton();
+      return meals.json();
+    })
     .then((mealsInfo: requestItem[]) => {
       let refinedMealsInfo = mealsInfo.map((mealInfo) => {
         let newMealInfo: NutritionalValue = {

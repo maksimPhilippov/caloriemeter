@@ -26,3 +26,12 @@ body {
 .basic-interactive:hover {
   background-color: $interactive-focus-color;
 }
+
+.button-disabled {
+  @include colorization-sheme;
+  @include interactive-element;
+  padding: 0.4rem;
+  margin: 0.25rem;
+  background-color: $disabled-background-color;
+  color: $disabled-color;
+}
