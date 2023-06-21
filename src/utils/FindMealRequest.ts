@@ -26,8 +26,6 @@ export default async function FindMealRequest(
   let tokens = tokenize(requestString);
   let query = tokens.filter((token) => isTokenValid(token)).join(" ");
 
-  console.log("query: " + query);
-
   fetch("https://api.api-ninjas.com/v1/nutrition?query=" + query, {
     headers: {
       "X-Api-Key": "o83iN0OBHRqWd14nNEtbmw==Gm7yAxhcawET75xO",

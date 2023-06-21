@@ -4,13 +4,7 @@ import Meal from "../Meal/Meal";
 import MealFinder from "../MealFinder/MealFinder";
 
 export default function Home() {
-  const [mealList, setMealList] = React.useState<NutritionalValue[]>([
-    {
-      name: "rice",
-      mass: 100,
-      caloriesCoeficient: 1.3,
-    },
-  ]);
+  const [mealList, setMealList] = React.useState<NutritionalValue[]>([]);
 
   const thisElement = useRef<HTMLDivElement>(null);
   const setEventListener = useEffect(() => {
@@ -39,8 +33,6 @@ export default function Home() {
   }
 
   function addNewMeals(addMeals: NutritionalValue[]) {
-    console.log("add");
-    console.log(addMeals);
     let newMeals = addMeals.reduce((proved: NutritionalValue[], meal) => {
       if (mealList.find((element) => element.name == meal.name) == undefined) {
         // no such food in mealList
@@ -48,11 +40,9 @@ export default function Home() {
       }
       return proved;
     }, []);
-    console.log(newMeals);
     if (newMeals.length != 0) {
       let newMealList = mealList.slice(0);
       newMealList.push(...newMeals);
-      console.log(newMealList);
       setMealList(newMealList);
     }
   }
