@@ -25,7 +25,7 @@ export default function SendRequestButton(prop: SendRequestButtonProp) {
   return (
     <div>
       <button className={buttonClass} onClick={click}>
-        find meals
+        {pressed ? <p>loading..</p> : <p>find meals</p>}
       </button>
     </div>
   );
