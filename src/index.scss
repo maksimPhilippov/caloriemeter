@@ -16,7 +16,7 @@ body {
   @include colorization-sheme;
   @include interactive-element;
   padding: 0.4rem;
-  margin-right: 1rem;
+  margin: 0.25rem;
 }
 
 .basic-interactive:focus {

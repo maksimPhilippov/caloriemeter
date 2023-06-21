@@ -12,7 +12,7 @@ export default function MealFinder(prop: MealFinderProp) {
     <div className="basic-element">
       <input
         className="basic-interactive"
-        placeholder="input some food here"
+        placeholder="input food"
         type="text"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
