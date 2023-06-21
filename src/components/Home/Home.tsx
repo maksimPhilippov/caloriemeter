@@ -7,7 +7,7 @@ export default function Home() {
     {
       name: "rice",
       mass: 100,
-      calories: 130,
+      caloriesCoeficient: 1.3,
     },
   ]);
   return (

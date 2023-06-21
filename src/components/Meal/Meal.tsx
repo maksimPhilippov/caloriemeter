@@ -16,8 +16,6 @@ export default function Meal(prop: MealProp) {
     setChangingMass(value);
   }
 
-  const massCoeficient = changingMass / prop.item.mass;
-
   return (
     <div className="Meal">
       <p>{prop.item.name}</p>
@@ -26,7 +24,7 @@ export default function Meal(prop: MealProp) {
         value={changingMass}
         onChange={(e) => validateMass(e.target.value)}
       />
-      <p>{prop.item.calories * massCoeficient}</p>
+      <p>{prop.item.caloriesCoeficient * prop.item.mass}</p>
     </div>
   );
 }

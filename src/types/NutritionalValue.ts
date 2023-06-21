@@ -1,5 +1,5 @@
 export interface NutritionalValue {
-    name: string
-    mass: number
-    calories: number
+  name: string;
+  mass: number;
+  caloriesCoeficient: number;
 }
