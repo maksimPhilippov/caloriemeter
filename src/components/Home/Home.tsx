@@ -39,6 +39,8 @@ export default function Home() {
   }
 
   function addNewMeals(addMeals: NutritionalValue[]) {
+    console.log("add");
+    console.log(addMeals);
     let newMeals = addMeals.reduce((proved: NutritionalValue[], meal) => {
       if (mealList.find((element) => element.name == meal.name) == undefined) {
         // no such food in mealList
@@ -46,10 +48,11 @@ export default function Home() {
       }
       return proved;
     }, []);
-
+    console.log(newMeals);
     if (newMeals.length != 0) {
-      let newMealList = mealList.copyWithin(-1, 0);
-      newMealList.concat(newMeals);
+      let newMealList = mealList.slice(0);
+      newMealList.push(...newMeals);
+      console.log(newMealList);
       setMealList(newMealList);
     }
   }
@@ -59,7 +62,7 @@ export default function Home() {
       {mealList.map((mealItem, index) => (
         <Meal key={index} item={mealItem} index={index} />
       ))}
-      <MealFinder />
+      <MealFinder listAdder={addNewMeals} />
     </div>
   );
 }
