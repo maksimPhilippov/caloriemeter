@@ -1,0 +1,19 @@
+@import "./variables.scss";
+
+@mixin colorization-sheme {
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5rem;
+
+  background-color: $main-color1;
+  color: $additional-color;
+  border-radius: $roundation;
+}
+
+@mixin interactive-element {
+  border: 0px;
+  min-width: 5rem;
+  max-width: 60%;
+  background-color: $interactive-background-color;
+}

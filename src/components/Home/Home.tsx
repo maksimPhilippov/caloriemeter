@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { NutritionalValue } from "../../types/NutritionalValue";
 import Meal from "../Meal/Meal";
 import MealFinder from "../MealFinder/MealFinder";
+import "./Home.scss";
 
 export default function Home() {
   const [mealList, setMealList] = React.useState<NutritionalValue[]>([]);
@@ -48,7 +49,7 @@ export default function Home() {
   }
 
   return (
-    <div ref={thisElement}>
+    <div ref={thisElement} className="home-page">
       {mealList.map((mealItem, index) => (
         <Meal key={index} item={mealItem} index={index} />
       ))}

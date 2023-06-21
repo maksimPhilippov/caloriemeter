@@ -1,0 +1,28 @@
+@import "./styles/variables.scss";
+@import "./styles/mixins.scss";
+@import "./styles/reset.css";
+body {
+  background-color: $additional-color;
+}
+
+.basic-element {
+  @include colorization-sheme;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.basic-interactive {
+  @include colorization-sheme;
+  @include interactive-element;
+  padding: 0.4rem;
+  margin-right: 1rem;
+}
+
+.basic-interactive:focus {
+  outline: none;
+}
+
+.basic-interactive:hover {
+  background-color: $interactive-focus-color;
+}

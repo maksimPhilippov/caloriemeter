@@ -27,14 +27,18 @@ export default function Meal(prop: MealProp) {
   }
 
   return (
-    <div ref={thisElement} className="Meal">
+    <div ref={thisElement} className="meal-item basic-element">
       <p>{prop.item.name}</p>
-      mass:
-      <input
-        type="text"
-        value={prop.item.mass}
-        onChange={(e) => validateMass(e.target.value)}
-      />
+      <label>
+        {" "}
+        mass:
+        <input
+          className="basic-interactive"
+          type="text"
+          value={prop.item.mass}
+          onChange={(e) => validateMass(e.target.value)}
+        />
+      </label>
       <p>
         calories: {(prop.item.caloriesCoeficient * prop.item.mass).toFixed(0)}
       </p>
