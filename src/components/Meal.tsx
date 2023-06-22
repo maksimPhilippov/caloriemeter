@@ -1,5 +1,6 @@
 import React from "react";
 import { NutritionalValue } from "../types/NutritionalValue";
+import CalorieDisplay from "./CalorieDisplay";
 
 interface MealProp {
   item: NutritionalValue;
@@ -32,7 +33,7 @@ export default function Meal(prop: MealProp) {
         />
       </label>
       <p>
-        calories: {(prop.item.caloriesCoeficient * prop.item.mass).toFixed(0)}
+        <CalorieDisplay count={prop.item.caloriesCoeficient * prop.item.mass} />
       </p>
     </div>
   );

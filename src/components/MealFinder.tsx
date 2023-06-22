@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NutritionalValue } from "../types/NutritionalValue";
 import SendRequestButton from "./SendRequestButton";
 
@@ -8,6 +8,9 @@ interface MealFinderProp {
 export default function MealFinder(prop: MealFinderProp) {
   const [inputText, setInputText] = React.useState("");
 
+  useEffect(() => {
+    return () => {};
+  });
   return (
     <div className="basic-element">
       <input

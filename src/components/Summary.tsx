@@ -1,4 +1,5 @@
 import React from "react";
+import CalorieDisplay from "./CalorieDisplay";
 
 interface SummaryProp {
   mealsCount: number;
@@ -11,7 +12,9 @@ export default function Summary(prop: SummaryProp) {
       {prop.mealsCount === 0 ? (
         <p>No food selected </p>
       ) : (
-        <p>you will get {prop.mealsColriesSum} calories </p>
+        <p>
+          Summary <CalorieDisplay count={prop.mealsColriesSum} />
+        </p>
       )}
     </div>
   );

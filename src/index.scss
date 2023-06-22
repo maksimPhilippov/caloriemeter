@@ -49,3 +49,8 @@ body {
   flex-flow: column nowrap;
   align-items: center;
 }
+
+.calorie-display {
+  @include colorization-sheme;
+  text-decoration: underline;
+}
