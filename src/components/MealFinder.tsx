@@ -1,5 +1,5 @@
 import React from "react";
-import { NutritionalValue } from "../../types/NutritionalValue";
+import { NutritionalValue } from "../types/NutritionalValue";
 import SendRequestButton from "./SendRequestButton";
 
 interface MealFinderProp {

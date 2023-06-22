@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { ListContext } from "../../types/ListContext";
-import FindMealRequest from "../../utils/FindMealRequest";
+import { ListContext } from "../types/ListContext";
+import FindMealRequest from "../utils/FindMealRequest";
 
 export interface SendRequestButtonProp {
   query: string;

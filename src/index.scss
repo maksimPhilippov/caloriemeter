@@ -35,3 +35,17 @@ body {
   background-color: $disabled-background-color;
   color: $disabled-color;
 }
+
+.home-page {
+  margin-inline: auto;
+  padding: 1rem 3rem;
+
+  min-width: 300px;
+  max-width: 30%;
+  min-height: 100px;
+  max-height: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}

@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { NutritionalValue } from "../../types/NutritionalValue";
-import Meal from "../Meal/Meal";
-import MealFinder from "../MealFinder/MealFinder";
-import "./Home.scss";
-import Summary from "../Summary/Summary";
-import { ListContext } from "../../types/ListContext";
+import { NutritionalValue } from "../types/NutritionalValue";
+import Meal from "./Meal";
+import MealFinder from "./MealFinder";
+import Summary from "./Summary/Summary";
+import { ListContext } from "../types/ListContext";
 
 export default function Home() {
   const [mealList, setMealList] = React.useState<NutritionalValue[]>([]);
