@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { NutritionalValue } from "../types/NutritionalValue";
 import Meal from "./Meal";
 import MealFinder from "./MealFinder";
-import Summary from "./Summary/Summary";
+import Summary from "./Summary";
 import { ListContext } from "../types/ListContext";
 
 export default function Home() {
