@@ -3,7 +3,7 @@ import { NutritionalValue } from "../types/NutritionalValue";
 
 interface MealProp {
   item: NutritionalValue;
-  index: number;
+  setNewMass: (mass: number) => void;
 }
 
 export default function Meal(prop: MealProp) {
@@ -15,15 +15,7 @@ export default function Meal(prop: MealProp) {
       value = 0;
     }
 
-    let massChange = new CustomEvent("massChange", {
-      bubbles: true,
-      detail: {
-        index: prop.index,
-        newvalue: value,
-      },
-    });
-
-    thisElement.current?.dispatchEvent(massChange);
+    prop.setNewMass(value);
   }
 
   return (

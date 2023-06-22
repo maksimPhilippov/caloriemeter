@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { NutritionalValue } from "../types/NutritionalValue";
 import Meal from "./Meal";
 import MealFinder from "./MealFinder";
@@ -8,29 +8,9 @@ import { ListContext } from "../types/ListContext";
 export default function Home() {
   const [mealList, setMealList] = React.useState<NutritionalValue[]>([]);
 
-  const thisElement = useRef<HTMLDivElement>(null);
-  const setEventListener = useEffect(() => {
-    const ChangeMassListener = (e: Event) => {
-      if (isCustomEvent(e)) {
-        changeMassEventListener(e);
-      }
-    };
-    thisElement.current?.addEventListener("massChange", ChangeMassListener);
-    return () => {
-      thisElement.current?.removeEventListener(
-        "massChange",
-        ChangeMassListener
-      );
-    };
-  });
-
-  function isCustomEvent(e: Event): e is CustomEvent {
-    return "detail" in e;
-  }
-
-  function changeMassEventListener(event: CustomEvent) {
+  function listSetMass(mass: number, index: number) {
     let newMealList = mealList.slice(0);
-    newMealList[event.detail.index].mass = event.detail.newvalue;
+    newMealList[index].mass = mass;
     setMealList(newMealList);
   }
 
@@ -51,9 +31,13 @@ export default function Home() {
 
   return (
     <ListContext.Provider value={{ listAdder: addNewMeals }}>
-      <div ref={thisElement} className="home-page">
+      <div className="home-page">
         {mealList.map((mealItem, index) => (
-          <Meal key={index} item={mealItem} index={index} />
+          <Meal
+            key={index}
+            item={mealItem}
+            setNewMass={(newmass) => listSetMass(newmass, index)}
+          />
         ))}
         <Summary
           mealsCount={mealList.length}
