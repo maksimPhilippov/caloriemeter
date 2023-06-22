@@ -1,7 +1,6 @@
-import React, { useCallback, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { ListContext } from "../../types/ListContext";
 import FindMealRequest from "../../utils/FindMealRequest";
-import { click } from "@testing-library/user-event/dist/click";
 
 export interface SendRequestButtonProp {
   query: string;

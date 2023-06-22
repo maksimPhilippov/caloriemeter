@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { NutritionalValue } from "../../types/NutritionalValue";
 import Meal from "../Meal/Meal";
 import MealFinder from "../MealFinder/MealFinder";

@@ -1,5 +1,4 @@
 import React from "react";
-import FindMealRequest from "../../utils/FindMealRequest";
 import { NutritionalValue } from "../../types/NutritionalValue";
 import SendRequestButton from "./SendRequestButton";
 
